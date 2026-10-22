@@ -13,3 +13,10 @@ Desktop.ini
 # VS Code / IDE
 .vscode/
 .idea/
+
+# Large local photoshoot assets (1.4 GB raw)
+assets/SHOOTING/
+assets/shooting_preview/
+shooting_preview.html
+catalogue_shooting.html
+OUVRIR_CATALOGUE_PHOTOS.bat

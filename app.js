@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Collection Haute Couture Marocaine (Shooting Officiel Saloua)
   const products = [
     {
+      id: 9,
+      title: "Robe de Mariée en Soie Pure 'Céleste'",
+      category: "bridal",
+      categoryLabel: "Robe de Mariée",
+      price: 3900,
+      priceFormatted: "Sur Devis (dès 3 900 €)",
+      tag: "Collection Mariée 2026",
+      image: "assets/bridal/robe_mariee_face_studio.jpg",
+      description: "Robe de mariée haute couture en crêpe de soie blanche pure et mousseline impériale. Décolleté cache-cœur, dos nu plongeant orné d'un nœud papillon en ruban de soie et traîne fluide vaporeuse.",
+      fabric: "Crêpe de soie lourd & mousseline blanche impériale, fil de soie sabra",
+      hours: "120 heures d'atelier couture",
+      details: ["Décolleté croisé en V façon cache-cœur", "Dos nu délicat avec nœud drapé en soie", "Tombé fluide avec fente d'allure moderne", "Ajustement millimétré sur-mesure en salon"]
+    },
+    {
       id: 1,
       title: "Takchita Royale 'Majesté Impériale'",
       category: "bridal",
@@ -317,7 +331,19 @@ document.addEventListener('DOMContentLoaded', () => {
       let displayCategory = p.categoryLabel;
       let displayTitle = p.title;
 
-      if (p.id === 7) {
+      if (p.id === 9) {
+      if (currentLang === 'en') {
+        modalTitle = "Pure Silk Bridal Gown 'Céleste'";
+        modalCategory = "Bridal Gown";
+        modalDesc = "Haute couture bridal gown in pure white silk crepe and imperial chiffon. Wrap V-neckline, plunging open back with a flowing silk bow and airy train.";
+      } else if (currentLang === 'ar') {
+        modalTitle = "فستان الزفاف الحريري 'سيليست'";
+        modalCategory = "فستان زفاف كوتور";
+        modalDesc = "فستان زفاف راقٍ من كريب الحرير الصافي والشيفون الإمبراطوري. تصميم كاش-كور أنيق، ظهر مكشوف برقة مع فيونكة حريرية وذيل منساب بخفة.";
+      }
+    }
+
+    if (p.id === 7) {
         if (currentLang === 'en') {
           displayTag = "Traditional Moroccan Couture";
           displayCategory = "Traditional Artisanal Caftan";
@@ -466,6 +492,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let modalTitle = p.title;
     let modalDesc = p.description;
     let modalCategory = p.categoryLabel;
+
+    if (p.id === 9) {
+      if (currentLang === 'en') {
+        modalTitle = "Pure Silk Bridal Gown 'Céleste'";
+        modalCategory = "Bridal Gown";
+        modalDesc = "Haute couture bridal gown in pure white silk crepe and imperial chiffon. Wrap V-neckline, plunging open back with a flowing silk bow and airy train.";
+      } else if (currentLang === 'ar') {
+        modalTitle = "فستان الزفاف الحريري 'سيليست'";
+        modalCategory = "فستان زفاف كوتور";
+        modalDesc = "فستان زفاف راقٍ من كريب الحرير الصافي والشيفون الإمبراطوري. تصميم كاش-كور أنيق، ظهر مكشوف برقة مع فيونكة حريرية وذيل منساب بخفة.";
+      }
+    }
 
     if (p.id === 7) {
       if (currentLang === 'en') {
