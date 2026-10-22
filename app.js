@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <a 
             href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20d%27essayage%20pour%20la%20cr%C3%A9ation%20%22${encodeURIComponent(p.title)}%22%20(${encodeURIComponent(p.categoryLabel)})."
             target="_blank"
-            class="w-full py-3.5 bg-[#25D366] hover:bg-[#20bd5a] text-white transition-all duration-300 text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 shadow-md"
+            class="w-full py-3.5 bg-[#BDA885] hover:bg-[#a69270] text-[#1E1102] transition-all duration-300 text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 shadow-md"
           >
             <i data-lucide="message-circle" class="w-4 h-4"></i> Prendre RDV pour cette pièce sur WhatsApp
           </a>
