@@ -216,12 +216,99 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenu.classList.toggle('hidden');
   });
 
+  // Language Switcher Logic (FR / EN / AR)
+  let currentLang = localStorage.getItem('meema_lang') || 'fr';
+  let currentCategory = 'all';
+
+  function applyLanguage(lang) {
+    if (!window.MEEMA_TRANSLATIONS || !window.MEEMA_TRANSLATIONS[lang]) return;
+    currentLang = lang;
+    localStorage.setItem('meema_lang', lang);
+
+    const isRtl = (lang === 'ar');
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
+
+    // Update active state on all language buttons
+    document.querySelectorAll('.lang-switch-btn').forEach(btn => {
+      if (btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active-lang', 'bg-brand-onyx', 'text-brand-cream');
+        btn.classList.remove('text-brand-charcoal');
+      } else {
+        btn.classList.remove('active-lang', 'bg-brand-onyx', 'text-brand-cream');
+        btn.classList.add('text-brand-charcoal');
+      }
+    });
+
+    const t = window.MEEMA_TRANSLATIONS[lang];
+
+    // Update data-i18n elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (t[key]) {
+        el.textContent = t[key];
+      }
+    });
+
+    // Update data-i18n-html elements
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (t[key]) {
+        el.innerHTML = t[key];
+      }
+    });
+
+    // Update data-i18n-placeholder elements
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      if (t[key]) {
+        el.placeholder = t[key];
+      }
+    });
+
+    // Update general WhatsApp links according to language
+    let msg = "Bonjour Maison MEEMA Couture, je souhaite réserver un rendez-vous d'essayage privé.";
+    if (lang === 'en') {
+      msg = "Hello Maison MEEMA Couture, I would like to book a private fitting appointment.";
+    } else if (lang === 'ar') {
+      msg = "مرحباً دار ميما كوتور، أود حجز موعد لجلسة قياس خاصة.";
+    }
+    const encoded = encodeURIComponent(msg);
+    document.querySelectorAll('a[href*="wa.me/212694900339"]').forEach(a => {
+      if (!a.getAttribute('data-product-wa')) {
+        a.href = `https://wa.me/212694900339?text=${encoded}`;
+      }
+    });
+
+    renderProducts(currentCategory);
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  }
+
+  // Bind click on language buttons
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-switch-btn');
+    if (btn) {
+      const targetLang = btn.getAttribute('data-lang');
+      if (targetLang) {
+        applyLanguage(targetLang);
+        showToast(targetLang === 'ar' ? 'تم تفعيل اللغة العربية' : (targetLang === 'en' ? 'English language activated' : 'Langue française activée'));
+      }
+    }
+  });
+
   // Render Products
-  function renderProducts(category = 'all') {
+  function renderProducts(category = currentCategory) {
+    currentCategory = category;
     productsGrid.innerHTML = '';
     const filtered = category === 'all' 
       ? products 
       : products.filter(p => p.category === category);
+
+    const t = window.MEEMA_TRANSLATIONS ? window.MEEMA_TRANSLATIONS[currentLang] : null;
+    const quickviewText = (t && t.card_quickview) ? t.card_quickview : 'Aperçu Rapide';
 
     filtered.forEach(p => {
       const isWishlisted = wishlist.includes(p.id);
@@ -245,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
               data-quickview-id="${p.id}" 
               class="quickview-trigger flex-1 py-2 bg-white text-brand-onyx text-[10px] uppercase tracking-widest font-semibold hover:bg-brand-gold hover:text-white transition-colors"
             >
-              Aperçu Rapide
+              ${quickviewText}
             </button>
           </div>
         </div>
@@ -336,6 +423,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const p = products.find(item => item.id === productId);
     if (!p) return;
 
+    let labelFabrics = "Matières :";
+    let labelHours = "Temps d'Atelier :";
+    let labelFeatures = "Particularités Couture :";
+    let btnWaText = "Prendre RDV pour cette pièce sur WhatsApp";
+    let btnFormText = "Remplir le Formulaire Privé";
+    let waMsg = `Bonjour Maison MEEMA Couture, je souhaite réserver un rendez-vous d'essayage pour la création "${p.title}" (${p.categoryLabel}).`;
+
+    if (currentLang === 'en') {
+      labelFabrics = "Fabrics:";
+      labelHours = "Atelier Craftsmanship Time:";
+      labelFeatures = "Couture Details:";
+      btnWaText = "Book Fitting for this Piece on WhatsApp";
+      btnFormText = "Fill Private Consultation Form";
+      waMsg = `Hello Maison MEEMA Couture, I would like to book a private fitting for the creation "${p.title}".`;
+    } else if (currentLang === 'ar') {
+      labelFabrics = "الأقمشة الفاخرة:";
+      labelHours = "ساعات العمل بالورشة:";
+      labelFeatures = "تفاصيل الحرفية:";
+      btnWaText = "حجز موعد لهذه القطعة عبر واتساب";
+      btnFormText = "تعبئة استمارة الحجز الخاصة";
+      waMsg = `مرحباً دار ميما كوتور، أود حجز موعد لجلسة قياس للتصميم "${p.title}".`;
+    }
+
     modalContent.innerHTML = `
       <div class="h-96 md:h-full bg-brand-sand/20 relative">
         <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover object-top">
@@ -354,17 +464,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <div class="space-y-3 border-t border-brand-sand/60 pt-4 mb-6">
             <div class="text-xs">
-              <span class="font-semibold text-brand-charcoal uppercase tracking-wider">Matières :</span>
+              <span class="font-semibold text-brand-charcoal uppercase tracking-wider">${labelFabrics}</span>
               <span class="text-brand-muted ml-1">${p.fabric}</span>
             </div>
             <div class="text-xs">
-              <span class="font-semibold text-brand-charcoal uppercase tracking-wider">Temps d'Atelier :</span>
+              <span class="font-semibold text-brand-charcoal uppercase tracking-wider">${labelHours}</span>
               <span class="text-brand-muted ml-1">${p.hours}</span>
             </div>
           </div>
 
           <div class="space-y-1.5 mb-6">
-            <span class="text-xs font-semibold text-brand-charcoal uppercase tracking-wider block">Particularités Couture :</span>
+            <span class="text-xs font-semibold text-brand-charcoal uppercase tracking-wider block">${labelFeatures}</span>
             <ul class="text-xs text-brand-muted space-y-1">
               ${p.details.map(d => `<li class="flex items-center gap-2"><i data-lucide="check" class="w-3 h-3 text-brand-gold"></i> ${d}</li>`).join('')}
             </ul>
@@ -373,18 +483,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="space-y-2.5 pt-4 border-t border-brand-sand/60">
           <a 
-            href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20d%27essayage%20pour%20la%20cr%C3%A9ation%20%22${encodeURIComponent(p.title)}%22%20(${encodeURIComponent(p.categoryLabel)})."
+            href="https://wa.me/212694900339?text=${encodeURIComponent(waMsg)}"
             target="_blank"
+            data-product-wa="true"
             class="w-full py-3.5 bg-[#BDA885] hover:bg-[#a69270] text-[#1E1102] transition-all duration-300 text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 shadow-md"
           >
-            <i data-lucide="message-circle" class="w-4 h-4"></i> Prendre RDV pour cette pièce sur WhatsApp
+            <i data-lucide="message-circle" class="w-4 h-4"></i> ${btnWaText}
           </a>
           <a 
             href="#rendez-vous" 
             onclick="document.getElementById('quickview-modal').classList.add('hidden'); document.getElementById('quickview-modal').classList.remove('flex');"
             class="block text-center py-2.5 border border-brand-charcoal text-brand-charcoal hover:bg-brand-onyx hover:text-white transition-colors text-xs uppercase tracking-widest font-medium"
           >
-            Remplir le Formulaire Privé
+            ${btnFormText}
           </a>
         </div>
       </div>
@@ -571,33 +682,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Drawer Request Quote Button
   const checkoutBtn = document.getElementById('cart-checkout-btn');
-  checkoutBtn.addEventListener('click', () => {
-    if (cart.length === 0) {
-      showToast("Veuillez d'abord sélectionner des pièces.");
-      return;
-    }
-    closeCartDrawer();
-    const consultSection = document.getElementById('consultation');
-    consultSection.scrollIntoView({ behavior: 'smooth' });
-    showToast("Votre sélection sera incluse dans votre demande de rendez-vous.");
-  });
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      if (cart.length === 0) {
+        showToast("Veuillez d'abord sélectionner des pièces.");
+        return;
+      }
+      closeCartDrawer();
+      const consultSection = document.getElementById('rendez-vous');
+      if (consultSection) consultSection.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 
   // Consultation Form Submission
-  consultationForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    showToast("Demande de rendez-vous transmise avec succès ! Nous vous répondrons sous 24h.");
-    consultationForm.reset();
-  });
+  if (consultationForm) {
+    consultationForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const successMsg = currentLang === 'ar' 
+        ? "تم إرسال طلب الموعد بنجاح! سيتواصل معكم فريقنا خلال 24 ساعة." 
+        : (currentLang === 'en' 
+          ? "Appointment request successfully submitted! We will respond within 24 hours." 
+          : "Demande de rendez-vous transmise avec succès ! Nous vous répondrons sous 24h.");
+      showToast(successMsg);
+      consultationForm.reset();
+    });
+  }
 
-  // Newsletter Form Submission
-  newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    showToast("Merci pour votre inscription au Cercle Privé MEEMA.");
-    newsletterForm.reset();
-  });
+  // Newsletter Form Submission (if present)
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast("Merci pour votre inscription au Cercle Privé MEEMA.");
+      newsletterForm.reset();
+    });
+  }
 
   // Toast Notification System
   function showToast(message) {
+    if (!toast || !toastMsg) return;
     toastMsg.textContent = message;
     toast.classList.remove('translate-y-20', 'opacity-0');
     toast.classList.add('translate-y-0', 'opacity-100');
@@ -609,8 +731,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initializations
-  renderProducts();
+  applyLanguage(currentLang);
   renderInstagramFeed();
-  updateCartUI();
-  updateWishlistUI();
+  if (cartCount) updateCartUI();
+  if (wishlistCount) updateWishlistUI();
 });
