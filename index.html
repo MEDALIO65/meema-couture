@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MEEMA COUTURE — Maison de Haute Couture Marocaine</title>
+  <meta name="description" content="MEEMA Couture — Maison de Haute Couture Marocaine d'exception. Caftans d'art, Takchitas de mariée sur-mesure, Minimalist Ramadan 2026 et MEEMA Denim Edit.">
+  
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cream: '#FAF8F5',
+              parchment: '#F3EFEA',
+              sand: '#E7DFD5',
+              gold: '#C5A880',
+              goldDark: '#A68453',
+              charcoal: '#211F1D',
+              onyx: '#121110',
+              muted: '#7A7571'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-cream text-brand-charcoal font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-brand-onyx text-brand-parchment text-[11px] tracking-widest uppercase py-2 px-4 border-b border-white/10 relative z-50">
+    <div class="container mx-auto flex items-center justify-between">
+      <span class="hidden md:inline-block text-brand-gold font-serif italic text-xs">Maison de Haute Couture Marocaine • Atelier Privé</span>
+      <p class="mx-auto tracking-wider text-center">
+        ✦ ÉDITION 2026 : VISUAL DOSSIER I RAMADAN & DENIM EDIT — <a href="#dossier" class="underline hover:text-brand-gold transition-colors font-semibold">TÉLÉCHARGER LE DOSSIER</a> ✦
+      </p>
+      <div class="hidden md:flex items-center space-x-5">
+        <a href="https://wa.me/212694900339" target="_blank" class="hover:text-brand-gold flex items-center gap-1 transition-colors">
+          <i data-lucide="phone" class="w-3 h-3 text-brand-gold"></i> +212 6 94 90 03 39
+        </a>
+        <a href="https://www.instagram.com/meema.couture" target="_blank" rel="noopener noreferrer" class="hover:text-brand-gold flex items-center gap-1 transition-colors">
+          <i data-lucide="instagram" class="w-3.5 h-3.5"></i> @meema.couture
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Luxury Navigation -->
+  <header id="main-nav" class="sticky top-0 z-40 bg-brand-cream/95 backdrop-blur-md transition-all duration-300 border-b border-brand-sand/60">
+    <div class="container mx-auto px-6 lg:px-12 py-4 flex items-center justify-between">
+      <!-- Mobile Menu Toggle -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-brand-charcoal hover:text-brand-gold transition-colors" aria-label="Menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Left Navigation Links -->
+      <nav class="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-widest font-medium">
+        <a href="#manifesto" class="hover:text-brand-gold transition-colors py-1 relative group">
+          Manifesto
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#capsules" class="hover:text-brand-gold transition-colors py-1 relative group">
+          Capsules 2026
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#creations" class="hover:text-brand-gold transition-colors py-1 relative group">
+          Caftans & Takchitas
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#dossier" class="hover:text-brand-gold transition-colors py-1 relative group text-brand-gold">
+          Dossier Visuel
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#savoir-faire" class="hover:text-brand-gold transition-colors py-1 relative group">
+          L'Atelier Maâlem
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-gold transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      </nav>
+
+      <!-- Center Logo -->
+      <a href="#" class="text-center group">
+        <h1 class="font-serif text-3xl md:text-4xl tracking-[0.25em] font-light text-brand-onyx group-hover:text-brand-gold transition-colors uppercase">
+          MEEMA
+        </h1>
+        <span class="block text-[8px] uppercase tracking-[0.4em] text-brand-gold font-sans font-medium -mt-1">
+          Haute Couture Marocaine
+        </span>
+      </a>
+
+      <!-- Right Action CTA Buttons -->
+      <div class="flex items-center space-x-3">
+        <a 
+          href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20pour%20une%20cr%C3%A9ation%20sur-mesure." 
+          target="_blank" 
+          class="inline-flex items-center gap-2 text-xs uppercase tracking-widest bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-2.5 font-semibold transition-all shadow-sm rounded-none"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Prendre RDV WhatsApp</span>
+          <span class="sm:hidden">WhatsApp RDV</span>
+        </a>
+        <a 
+          href="#rendez-vous" 
+          class="hidden md:inline-flex items-center gap-2 text-xs uppercase tracking-widest bg-brand-onyx text-brand-cream px-5 py-2.5 hover:bg-brand-gold transition-all duration-300 font-semibold shadow-md"
+        >
+          Formulaire Privé
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-brand-cream border-t border-brand-sand px-6 py-6 space-y-4">
+      <a href="#manifesto" class="block text-sm uppercase tracking-widest hover:text-brand-gold py-2 border-b border-brand-sand/40">Manifesto</a>
+      <a href="#capsules" class="block text-sm uppercase tracking-widest hover:text-brand-gold py-2 border-b border-brand-sand/40">Capsules 2026 (Ramadan & Denim)</a>
+      <a href="#creations" class="block text-sm uppercase tracking-widest hover:text-brand-gold py-2 border-b border-brand-sand/40">Caftans & Takchitas d'Art</a>
+      <a href="#dossier" class="block text-sm uppercase tracking-widest text-brand-gold font-semibold py-2 border-b border-brand-sand/40">Dossier Visuel (PDF)</a>
+      <a href="#savoir-faire" class="block text-sm uppercase tracking-widest hover:text-brand-gold py-2 border-b border-brand-sand/40">L'Atelier Maâlem</a>
+      <a 
+        href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20d%27essayage%20priv%C3%A9." 
+        target="_blank" 
+        class="block text-sm uppercase tracking-widest bg-[#25D366] text-white text-center py-3 font-bold"
+      >
+        <i data-lucide="message-circle" class="w-4 h-4 inline-block mr-1"></i> Réserver RDV sur WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-brand-onyx text-brand-cream">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="assets/dossier/dossier_portrait.jpg" 
+        alt="MEEMA Haute Couture Marocaine — Visuel Officiel" 
+        class="w-full h-full object-cover object-top opacity-55 scale-105 animate-subtle-zoom"
+      >
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-onyx via-brand-onyx/40 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-onyx/85 via-transparent to-brand-onyx/85"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10 text-center py-20 md:py-28 max-w-4xl">
+      <div class="inline-flex items-center gap-2 text-xs md:text-sm uppercase tracking-[0.4em] text-brand-gold mb-6 font-medium bg-brand-onyx/70 px-5 py-2 border border-brand-gold/30 backdrop-blur-sm">
+        <span>Maison de Haute Couture Marocaine</span>
+      </div>
+      
+      <h2 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-light tracking-wide leading-[1.08] mb-6 text-brand-parchment">
+        L'Élégance Impériale <br>
+        <span class="italic font-normal text-brand-gold">Du Caftan d'Art</span>
+      </h2>
+
+      <p class="text-brand-sand/90 text-sm md:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-10 tracking-wide">
+        Takchitas de mariée sculpturales, caftans d’apparat et capsules contemporaines façonnés à la main au fil d'or Skalli selon le geste ancestral des maîtres artisans marocains.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20d%27essayage%20priv%C3%A9%20pour%20une%20cr%C3%A9ation%20sur-mesure." 
+          target="_blank" 
+          class="w-full sm:w-auto px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-xl flex items-center justify-center gap-2.5"
+        >
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          Prendre RDV sur WhatsApp
+        </a>
+        <a href="#creations" class="w-full sm:w-auto px-8 py-4 bg-brand-gold text-brand-onyx hover:bg-white text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-xl hover:shadow-brand-gold/20">
+          Explorer les Créations
+        </a>
+        <a href="#dossier" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 border border-brand-gold/40 text-brand-gold text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-4 h-4"></i> Dossier Visuel PDF
+        </a>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid grid-cols-3 gap-6 pt-16 md:pt-20 max-w-2xl mx-auto border-t border-white/15 mt-16 text-center">
+        <div>
+          <span class="block font-serif text-2xl md:text-3xl text-brand-gold">Maâlems</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-widest text-brand-sand/70">100% Cousu Main</span>
+        </div>
+        <div>
+          <span class="block font-serif text-2xl md:text-3xl text-brand-gold">Skalli Or</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-widest text-brand-sand/70">Fils Précieux & Sabra</span>
+        </div>
+        <div>
+          <span class="block font-serif text-2xl md:text-3xl text-brand-gold">Sur-Mesure</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-widest text-brand-sand/70">Pièces Uniques</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <a href="#manifesto" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-brand-gold flex flex-col items-center gap-1 opacity-70 hover:opacity-100 transition-opacity">
+      <span class="text-[9px] uppercase tracking-widest">Découvrir</span>
+      <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+    </a>
+  </section>
+
+  <!-- Brand Manifesto Section (Authentic from PDF) -->
+  <section id="manifesto" class="py-24 bg-brand-cream relative">
+    <div class="container mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Visual Composition -->
+        <div class="lg:col-span-6 relative">
+          <div class="relative z-10 overflow-hidden shadow-2xl">
+            <img 
+              src="assets/dossier/manifesto_model.jpg" 
+              alt="MEEMA Haute Couture — Silhouette & Manifesto" 
+              class="w-full h-[520px] object-cover object-top hover:scale-105 transition-transform duration-700"
+            >
+          </div>
+          <div class="hidden sm:block absolute -bottom-8 -right-8 w-60 h-72 z-20 overflow-hidden border-8 border-brand-cream shadow-xl">
+            <img 
+              src="assets/dossier/caftan_minimal.jpg" 
+              alt="Détails Minimalist Ramadan" 
+              class="w-full h-full object-cover"
+            >
+          </div>
+          <div class="absolute -top-6 -left-6 w-32 h-32 border border-brand-gold/40 -z-0"></div>
+        </div>
+
+        <!-- Manifesto Text -->
+        <div class="lg:col-span-6 lg:pl-6">
+          <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold block mb-3">Manifesto Officiel MEEMA</span>
+          <h3 class="font-serif text-3xl sm:text-4xl md:text-5xl font-light text-brand-onyx leading-tight mb-6">
+            « MEEMA does not follow the body. <br>
+            <span class="italic text-brand-gold font-normal">It begins with it. »</span>
+          </h3>
+
+          <blockquote class="border-l-2 border-brand-gold pl-5 italic text-brand-charcoal text-sm md:text-base leading-relaxed mb-6 font-serif">
+            "MEEMA was born from a heritage. One of garments designed for the body, of fabric understood through touch, and of ancestral craftsmanship passed down. Each piece is envisioned as an encounter between Moroccan tradition and contemporary allure, between structure and fluidity, between memory and desire."
+          </blockquote>
+
+          <p class="text-brand-muted text-sm leading-relaxed mb-8 font-light">
+            Chez MEEMA, chaque création transcende le vêtement : elle est une affirmation, une émotion, un fragment d'histoire vivante. Nous refusons tout compromis entre splendeur et confort. Chaque silhouette est sculptée pour révéler la féminité tout en restant fidèle à son essence.
+          </p>
+
+          <div class="grid grid-cols-2 gap-6 border-t border-brand-sand pt-6 mb-8">
+            <div class="space-y-1">
+              <span class="font-serif text-xl text-brand-onyx block">Maâlems & Skalli</span>
+              <p class="text-xs text-brand-muted leading-relaxed">Sfifa d'art, aqqads tressés à la main et broderies Tarz Rbati au fil d'or pur.</p>
+            </div>
+            <div class="space-y-1">
+              <span class="font-serif text-xl text-brand-onyx block">Allure & Confort</span>
+              <p class="text-xs text-brand-muted leading-relaxed">Coupes architecturales alliant noblesse du tombé et liberté de mouvement.</p>
+            </div>
+          </div>
+
+          <a href="#capsules" class="inline-flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-semibold text-brand-onyx border-b border-brand-onyx pb-1 hover:text-brand-gold hover:border-brand-gold transition-colors">
+            Explorer les Capsules du Dossier Visuel <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Two Featured Capsules (Ramadan & Denim Edit) -->
+  <section id="capsules" class="py-24 bg-brand-parchment/70 border-y border-brand-sand/60">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <span class="text-xs uppercase tracking-[0.35em] text-brand-gold font-semibold block mb-2">Les Deux Univers Iconiques</span>
+        <h3 class="font-serif text-3xl sm:text-5xl font-light text-brand-onyx mb-4">
+          Capsules Édition 2026
+        </h3>
+        <p class="text-brand-muted text-sm leading-relaxed">
+          Deux expressions singulières de la haute couture marocaine contemporaine, documentées dans notre Visual Dossier officiel.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <!-- Capsule 1: Minimalist Ramadan -->
+        <div class="bg-white border border-brand-sand p-8 sm:p-12 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-brand-gold font-semibold bg-brand-onyx text-white px-3.5 py-1">Capsule 01</span>
+              <span class="text-xs text-brand-muted font-serif italic">Collection 2026</span>
+            </div>
+            <h4 class="font-serif text-3xl text-brand-onyx font-light mb-3 group-hover:text-brand-gold transition-colors">
+              Minimalist Ramadan Moodboard
+            </h4>
+            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed font-light mb-6">
+              Une épure poétique pour les soirées de Ramadan : caftans fluides en mousseline et soie damassée, teintes champagne et ivoire, passementerie fine ton-sur-ton et tombé aérien.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-4">
+            <div class="overflow-hidden h-80 bg-brand-sand/20">
+              <img src="assets/dossier/ramadan_capsule_1.jpg" alt="Minimalist Ramadan 1" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="overflow-hidden h-80 bg-brand-sand/20">
+              <img src="assets/dossier/ramadan_capsule_2.jpg" alt="Minimalist Ramadan 2" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-brand-sand/60 flex items-center justify-between">
+            <span class="text-xs uppercase tracking-widest text-brand-charcoal font-medium">Soie pure & sfifa discrète</span>
+            <a href="#creations" class="text-xs uppercase tracking-widest text-brand-gold font-semibold hover:underline flex items-center gap-1">
+              Voir la Sélection <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Capsule 2: MEEMA Denim Edit -->
+        <div class="bg-white border border-brand-sand p-8 sm:p-12 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-[10px] uppercase tracking-[0.25em] text-brand-gold font-semibold bg-brand-onyx text-white px-3.5 py-1">Capsule 02</span>
+              <span class="text-xs text-brand-muted font-serif italic">Haute Façon Urbaine</span>
+            </div>
+            <h4 class="font-serif text-3xl text-brand-onyx font-light mb-3 group-hover:text-brand-gold transition-colors">
+              MEEMA Denim Edit
+            </h4>
+            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed font-light mb-6">
+              La signature contemporaine de la maison : réinterprétation du denim brut japonais avec les techniques de joaillerie textile marocaine, boutons aqqads en métal doré martelé et finitions tailleur.
+            </p>
+          </div>
+          <div class="grid grid-cols-2 gap-3 mt-4">
+            <div class="overflow-hidden h-80 bg-brand-sand/20">
+              <img src="assets/dossier/denim_capsule_1.jpg" alt="MEEMA Denim Edit 1" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
+            </div>
+            <div class="overflow-hidden h-80 bg-brand-sand/20">
+              <img src="assets/dossier/denim_capsule_2.png" alt="MEEMA Denim Edit 2" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+            </div>
+          </div>
+          <div class="mt-6 pt-6 border-t border-brand-sand/60 flex items-center justify-between">
+            <span class="text-xs uppercase tracking-widest text-brand-charcoal font-medium">Denim 13oz & Broderies Or</span>
+            <a href="#creations" class="text-xs uppercase tracking-widest text-brand-gold font-semibold hover:underline flex items-center gap-1">
+              Voir la Sélection <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Collection / Lookbook Section -->
+  <section id="creations" class="py-24 bg-brand-cream">
+    <div class="container mx-auto px-6 lg:px-12">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold block mb-3">La Garde-Robe Couture</span>
+        <h3 class="font-serif text-3xl sm:text-5xl font-light text-brand-onyx mb-4">
+          Caftans & Takchitas d'Exception
+        </h3>
+        <p class="text-brand-muted text-sm leading-relaxed">
+          Sélectionnez une création pour afficher les détails de confection, les matières nobles et planifier un essayage privé.
+        </p>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-8" id="filter-buttons">
+          <button data-filter="all" class="filter-btn active-filter px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 font-medium">
+            Toutes les Créations
+          </button>
+          <button data-filter="bridal" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 font-medium text-brand-muted hover:text-brand-onyx">
+            Takchitas de Mariée
+          </button>
+          <button data-filter="evening" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 font-medium text-brand-muted hover:text-brand-onyx">
+            Caftans de Soirée
+          </button>
+          <button data-filter="prive" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 font-medium text-brand-muted hover:text-brand-onyx">
+            Atelier Privé & Sur-Mesure
+          </button>
+          <button data-filter="ready-to-wear" class="filter-btn px-5 py-2 text-xs uppercase tracking-widest transition-all duration-300 font-medium text-brand-muted hover:text-brand-onyx">
+            Caftans Modernes & Kimonos
+          </button>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="products-grid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Visual Dossier & PDF Download Section -->
+  <section id="dossier" class="py-24 bg-brand-onyx text-brand-cream relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#C5A880_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <div class="container mx-auto px-6 lg:px-12 relative z-10">
+      
+      <div class="max-w-3xl mx-auto text-center mb-14">
+        <span class="text-xs uppercase tracking-[0.35em] text-brand-gold font-semibold block mb-3">Document Officiel de la Maison</span>
+        <h3 class="font-serif text-3xl sm:text-5xl font-light text-brand-parchment mb-4">
+          Meema Visual Dossier I Ramadan 2026
+        </h3>
+        <p class="text-brand-sand/80 text-sm md:text-base leading-relaxed font-light mb-8 max-w-2xl mx-auto">
+          Consultez et téléchargez l'intégralité du dossier visuel officiel de la Maison MEEMA Couture : 16 planches éditoriales illustrant notre manifesto, nos croquis d'atelier et nos deux capsules signatures.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a 
+            href="assets/Meema_Visual_Dossier_Ramadan_2026.pdf" 
+            download="Meema_Visual_Dossier_Ramadan_2026.pdf"
+            class="px-8 py-4 bg-brand-gold text-brand-onyx hover:bg-white text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-xl flex items-center justify-center gap-2"
+          >
+            <i data-lucide="download" class="w-4 h-4"></i>
+            Télécharger le PDF Officiel (21 Mo)
+          </a>
+          <a 
+            href="assets/dossier/pages/page_1.jpg" 
+            target="_blank" 
+            class="px-8 py-4 border border-brand-sand/40 hover:bg-white/10 text-brand-cream text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300"
+          >
+            Ouvrir en Plein Écran
+          </a>
+        </div>
+      </div>
+
+      <!-- PDF 8 Pages Gallery -->
+      <div class="pt-8 border-t border-white/15">
+        <div class="flex items-center justify-between mb-6">
+          <span class="text-xs uppercase tracking-widest text-brand-gold font-medium">Planches Sélectionnées du Dossier (16 Pages)</span>
+          <span class="text-[11px] text-brand-sand/60">Cliquez pour agrandir une planche</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+          <a href="assets/dossier/pages/page_1.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_1.jpg" alt="Dossier Page 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 1</span>
+          </a>
+          <a href="assets/dossier/pages/page_2.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_2.jpg" alt="Dossier Page 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 2</span>
+          </a>
+          <a href="assets/dossier/pages/page_4.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_4.jpg" alt="Dossier Page 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 4</span>
+          </a>
+          <a href="assets/dossier/pages/page_6.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_6.jpg" alt="Dossier Page 6" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 6</span>
+          </a>
+          <a href="assets/dossier/pages/page_8.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_8.jpg" alt="Dossier Page 8" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 8</span>
+          </a>
+          <a href="assets/dossier/pages/page_10.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_10.jpg" alt="Dossier Page 10" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 10</span>
+          </a>
+          <a href="assets/dossier/pages/page_14.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_14.jpg" alt="Dossier Page 14" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 14</span>
+          </a>
+          <a href="assets/dossier/pages/page_16.jpg" target="_blank" class="group relative block aspect-[3/4] overflow-hidden bg-white/5 border border-white/20 shadow-sm hover:border-brand-gold transition-colors">
+            <img src="assets/dossier/pages/page_16.jpg" alt="Dossier Page 16" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute bottom-1 right-1 bg-black/80 text-white text-[9px] px-1.5 py-0.5">p. 16</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Savoir-Faire Maâlem & Bespoke Journey -->
+  <section id="savoir-faire" class="py-24 bg-brand-cream">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold block mb-3">L'Excellence d'Atelier</span>
+        <h3 class="font-serif text-3xl sm:text-5xl font-light text-brand-onyx mb-4">
+          Le Parcours du Sur-Mesure
+        </h3>
+        <p class="text-brand-muted text-sm leading-relaxed">
+          Chaque Takchita et Caftan d'apparat fait l'objet de plus de 150 heures de façon minutieuse au sein de nos ateliers de Casablanca.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="bg-white p-8 border border-brand-sand/60 relative group hover:border-brand-gold transition-colors duration-300 shadow-sm">
+          <span class="font-serif text-5xl text-brand-gold/40 group-hover:text-brand-gold transition-colors font-light block mb-4">01</span>
+          <h4 class="font-serif text-xl text-brand-onyx mb-3">Consultation & Étoffes</h4>
+          <p class="text-brand-muted text-xs leading-relaxed">
+            Choix des soies nobles, velours Moubroua, brocarts et dentelles. Sélection de la nuance du fil d'or Skalli et des motifs de broderies Tarz.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white p-8 border border-brand-sand/60 relative group hover:border-brand-gold transition-colors duration-300 shadow-sm">
+          <span class="font-serif text-5xl text-brand-gold/40 group-hover:text-brand-gold transition-colors font-light block mb-4">02</span>
+          <h4 class="font-serif text-xl text-brand-onyx mb-3">Coupe & Mesures d'Art</h4>
+          <p class="text-brand-muted text-xs leading-relaxed">
+            Prise de mensurations minutieuse pour sculpter l'architecture du caftan ou de la takchita : cintrage, ampleur de jupe et tombé royal.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white p-8 border border-brand-sand/60 relative group hover:border-brand-gold transition-colors duration-300 shadow-sm">
+          <span class="font-serif text-5xl text-brand-gold/40 group-hover:text-brand-gold transition-colors font-light block mb-4">03</span>
+          <h4 class="font-serif text-xl text-brand-onyx mb-3">L'Art du Maâlem</h4>
+          <p class="text-brand-muted text-xs leading-relaxed">
+            Tressage artisanal de la sfifa, fabrication manuelle des boutons aqqads et broderies de perles fines à l'aiguille par nos artisans d'élite.
+          </p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="bg-white p-8 border border-brand-sand/60 relative group hover:border-brand-gold transition-colors duration-300 shadow-sm">
+          <span class="font-serif text-5xl text-brand-gold/40 group-hover:text-brand-gold transition-colors font-light block mb-4">04</span>
+          <h4 class="font-serif text-xl text-brand-onyx mb-3">L'Essayage & la Mdamma</h4>
+          <p class="text-brand-muted text-xs leading-relaxed">
+            Essayage privé avec ajustement de la ceinture Mdamma coordonnée, ultime contrôle des finitions et remise de votre pièce d'apparat.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram Live Showcase Section (@meema.couture) -->
+  <section class="py-20 bg-brand-parchment/80 border-t border-brand-sand">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <div class="flex items-center gap-2 text-brand-gold text-xs uppercase tracking-[0.25em] font-semibold mb-2">
+            <i data-lucide="instagram" class="w-4 h-4"></i>
+            <span>Insta-Journal Couture</span>
+          </div>
+          <h3 class="font-serif text-3xl sm:text-4xl font-light text-brand-onyx">
+            Suivez <span class="italic">@meema.couture</span>
+          </h3>
+          <p class="text-brand-muted text-xs sm:text-sm mt-1">
+            Les coulisses de l’atelier, nos essayages privés à Casablanca et les nouvelles silhouettes en avant-première.
+          </p>
+        </div>
+
+        <a 
+          href="https://www.instagram.com/meema.couture" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-brand-onyx hover:bg-brand-gold text-brand-cream text-xs uppercase tracking-widest font-medium transition-all duration-300 self-start md:self-auto shadow-sm"
+        >
+          <i data-lucide="instagram" class="w-4 h-4"></i>
+          Suivre sur Instagram
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4" id="instagram-posts-grid">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking & Consultation Form Section -->
+  <section id="rendez-vous" class="py-24 bg-white relative">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="max-w-4xl mx-auto bg-brand-cream border border-brand-sand shadow-2xl p-8 sm:p-12 md:p-16 relative">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <span class="text-xs uppercase tracking-[0.3em] text-brand-gold font-semibold block mb-2">Consultation Privée</span>
+          <h3 class="font-serif text-3xl sm:text-4xl text-brand-onyx font-light mb-3">
+            Réserver Votre Séance d'Atelier
+          </h3>
+          <p class="text-brand-muted text-xs sm:text-sm leading-relaxed">
+            Rencontrez nos créateurs pour concevoir votre Takchita de mariée, Caftan d'apparat ou tenue sur-mesure. Consultation en salon privé ou par visioconférence.
+          </p>
+        </div>
+
+        <!-- VIP Instant WhatsApp Booking Banner -->
+        <div class="mb-12 bg-white border border-[#25D366]/40 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md hover:border-[#25D366] transition-colors">
+          <div class="space-y-1.5 text-center md:text-left">
+            <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-[#25D366] font-bold bg-[#25D366]/10 px-3 py-1">
+              <span class="w-2 h-2 rounded-full bg-[#25D366] animate-ping"></span> Conciergerie Dédiée 7j/7
+            </div>
+            <h4 class="font-serif text-2xl text-brand-onyx">Rendez-Vous Instantané par WhatsApp</h4>
+            <p class="text-xs text-brand-muted leading-relaxed max-w-lg font-light">
+              Bloquez directement votre créneau d'essayage privé à <strong>Casablanca</strong>, <strong>Rabat</strong>, <strong>Marrakech</strong> ou <strong>Paris</strong> en échangeant avec notre conciergerie.
+            </p>
+          </div>
+          <a 
+            href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20d%27essayage%20priv%C3%A9%20pour%20une%20cr%C3%A9ation%20sur-mesure." 
+            target="_blank"
+            class="whitespace-nowrap px-8 py-4 bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs uppercase tracking-[0.2em] font-bold transition-all duration-300 shadow-xl flex items-center gap-2.5 hover:scale-105"
+          >
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            Prendre RDV sur WhatsApp
+          </a>
+        </div>
+
+        <form id="consultation-form" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Nom & Prénom *</label>
+              <input type="text" required placeholder="ex: Sofia Benjelloun" class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Adresse E-mail *</label>
+              <input type="email" required placeholder="ex: sofia@example.com" class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Téléphone / WhatsApp *</label>
+              <input type="tel" required placeholder="ex: +212 6 XX XX XX XX" class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Type de Création Souhaitée</label>
+              <select class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors text-brand-charcoal">
+                <option value="takchita-mariee">Takchita de Mariée Haute Couture (2 ou 3 pièces)</option>
+                <option value="caftan-apparat">Caftan d'Apparat & Soirée Royale</option>
+                <option value="tenue-henne">Tenue de Henné d'Exception</option>
+                <option value="caftan-ramadan">Caftan Minimalist Ramadan 2026</option>
+                <option value="denim-edit">Pièce MEEMA Denim Edit</option>
+                <option value="selham-prive">Selham Brodé & Couture Privée</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Date estimée de l'Événement</label>
+              <input type="date" class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Lieu du Rendez-vous</label>
+              <select class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors text-brand-charcoal">
+                <option value="casablanca">Atelier Privé (Casablanca — Anfa)</option>
+                <option value="marrakech">Salon Privé (Marrakech / Rabat)</option>
+                <option value="paris">Showroom Privé (Paris — Place Vendôme)</option>
+                <option value="visio">Consultation Virtuelle (Visioconférence Internationale)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs uppercase tracking-widest text-brand-charcoal font-medium mb-2">Votre Projet & Détails Spécifiques</label>
+            <textarea rows="4" placeholder="Décrivez vos inspirations, les matières nobles que vous affectionnez, vos attentes pour l'événement..." class="w-full bg-white border border-brand-sand px-4 py-3 text-sm focus:outline-none focus:border-brand-gold transition-colors"></textarea>
+          </div>
+
+          <div class="text-center pt-4">
+            <button type="submit" class="w-full sm:w-auto px-12 py-4 bg-brand-onyx text-brand-cream hover:bg-brand-gold transition-all duration-300 text-xs uppercase tracking-[0.2em] font-semibold shadow-lg">
+              Confirmer la Demande de Rendez-Vous
+            </button>
+            <p class="text-[11px] text-brand-muted mt-3">
+              Notre conciergerie vous contactera sous 24h ouvrées. Pour une demande urgente : <a href="https://wa.me/212694900339" target="_blank" class="text-brand-gold underline">WhatsApp direct (+212 6 94 90 03 39)</a>.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Footer -->
+  <footer class="bg-brand-onyx text-brand-sand/80 pt-16 pb-10 text-xs">
+    <div class="container mx-auto px-6 lg:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <h2 class="font-serif text-2xl tracking-[0.2em] text-brand-parchment uppercase">MEEMA COUTURE</h2>
+          <p class="text-xs text-brand-sand/70 max-w-sm leading-relaxed">
+            Maison de Haute Couture Marocaine d'Art spécialisée dans les Caftans d'apparat, les Takchitas de mariée royales et le sur-mesure d'exception.
+          </p>
+          <div class="flex items-center space-x-4 pt-2">
+            <a href="https://www.instagram.com/meema.couture" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" title="Instagram @meema.couture">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="https://wa.me/212694900339" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" title="WhatsApp Conciergerie">
+              <i data-lucide="phone" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:meema.couture@gmail.com" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:border-brand-gold hover:text-brand-gold transition-colors" title="Email Officiel">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h5 class="text-xs uppercase tracking-widest text-brand-gold font-semibold mb-4">Maison & Collections</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#creations" class="hover:text-white transition-colors">Caftans & Takchitas</a></li>
+            <li><a href="#capsules" class="hover:text-white transition-colors">Minimalist Ramadan 2026</a></li>
+            <li><a href="#capsules" class="hover:text-white transition-colors">MEEMA Denim Edit</a></li>
+            <li><a href="#dossier" class="hover:text-white transition-colors">Dossier Visuel (PDF)</a></li>
+            <li><a href="#savoir-faire" class="hover:text-white transition-colors">L'Atelier Maâlem</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div>
+          <h5 class="text-xs uppercase tracking-widest text-brand-gold font-semibold mb-4">Services Sur-Mesure</h5>
+          <ul class="space-y-2.5">
+            <li><a href="#rendez-vous" class="hover:text-white transition-colors">Prendre Rendez-Vous</a></li>
+            <li><a href="#rendez-vous" class="hover:text-white transition-colors">Essayage Privé & Mdamma</a></li>
+            <li><a href="assets/Meema_Visual_Dossier_Ramadan_2026.pdf" download="Meema_Visual_Dossier_Ramadan_2026.pdf" class="hover:text-brand-gold transition-colors">Télécharger le PDF</a></li>
+            <li><a href="https://wa.me/212694900339" target="_blank" class="hover:text-white transition-colors">Conciergerie WhatsApp</a></li>
+            <li><a href="#rendez-vous" class="hover:text-white transition-colors">Expédition Internationale</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Ateliers & Contact -->
+        <div>
+          <h5 class="text-xs uppercase tracking-widest text-brand-gold font-semibold mb-4">Nos Salons & Contact</h5>
+          <address class="not-italic space-y-2.5 text-brand-sand/70">
+            <p><strong class="text-white">Atelier Principal :</strong><br>Boulevard d'Anfa, Casablanca</p>
+            <p><strong class="text-white">Salons Privés :</strong><br>Rabat & Marrakech</p>
+            <p><strong class="text-white">Téléphone & WhatsApp :</strong><br><a href="https://wa.me/212694900339" class="hover:text-brand-gold transition-colors">+212 6 94 90 03 39</a></p>
+            <p><strong class="text-white">E-mail Officiel :</strong><br><a href="mailto:meema.couture@gmail.com" class="hover:text-brand-gold transition-colors">meema.couture@gmail.com</a></p>
+          </address>
+        </div>
+      </div>
+
+      <!-- Bottom Credits -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-brand-sand/50">
+        <p>© 2026 MEEMA COUTURE. Tous droits réservés. Inspiré du profil officiel <a href="https://www.instagram.com/meema.couture" target="_blank" class="text-brand-gold underline">@meema.couture</a> et du dossier visuel officiel.</p>
+        <div class="flex space-x-6 mt-4 sm:mt-0">
+          <a href="#" class="hover:text-brand-gold transition-colors">Mentions Légales</a>
+          <a href="#" class="hover:text-brand-gold transition-colors">Politique de Confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quick View Modal -->
+  <div id="quickview-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-brand-cream w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-none shadow-2xl relative border border-brand-sand animate-fadeIn">
+      <button id="close-quickview" class="absolute top-4 right-4 z-10 w-9 h-9 bg-white/80 hover:bg-brand-onyx hover:text-white transition-colors flex items-center justify-center rounded-full text-brand-onyx">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2" id="modal-content">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Quick Appointment Button -->
+  <a 
+    href="https://wa.me/212694900339?text=Bonjour%20Maison%20MEEMA%20Couture%2C%20je%20souhaite%20r%C3%A9server%20un%20rendez-vous%20d%27essayage%20priv%C3%A9." 
+    target="_blank" 
+    class="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20bd5a] text-white py-3 px-5 rounded-full shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-3 border-2 border-white/80"
+    title="Prendre Rendez-Vous sur WhatsApp (+212 6 94 90 03 39)"
+  >
+    <div class="relative">
+      <i data-lucide="message-circle" class="w-5 h-5"></i>
+      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white rounded-full animate-ping"></span>
+    </div>
+    <div class="text-left hidden sm:block">
+      <span class="block text-[9px] uppercase tracking-wider text-white/90 font-medium">Conciergerie 7j/7</span>
+      <span class="block text-xs uppercase tracking-widest font-bold">Prendre RDV WhatsApp</span>
+    </div>
+    <span class="sm:hidden text-xs uppercase tracking-wider font-bold">RDV WhatsApp</span>
+  </a>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-6 left-6 z-50 bg-brand-onyx text-brand-cream px-5 py-3 rounded shadow-xl flex items-center gap-3 text-xs tracking-wide transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <i data-lucide="check-circle" class="w-4 h-4 text-brand-gold"></i>
+    <span id="toast-message">Action effectuée avec succès</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
