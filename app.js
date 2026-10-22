@@ -94,17 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 7,
-      title: "Veste Caftan Denim & Tarz Or",
-      category: "ready-to-wear",
-      categoryLabel: "Caftans Modernes & Kimonos",
-      price: 1100,
-      priceFormatted: "1 100 €",
-      tag: "MEEMA Denim Edit",
-      image: "assets/dossier/denim_capsule_1.jpg",
-      description: "Pièce iconique issue du 'MEEMA Denim Edit' fusionnant le denim brut japonais et les broderies traditionnelles marocaines au fil d'or, col officier rehaussé d'Aqqads martelés.",
-      fabric: "Denim de coton biologique japonais 13oz, fil d'or Skalli",
-      hours: "35 heures de broderie",
-      details: ["Boutons Aqqads or massif", "Tarz géométrique fait main", "Doublure twill de soie"]
+      title: "Caftan Traditionnel d'Apparat 'Brocart & Tarz Ntaa'",
+      category: "caftan",
+      categoryLabel: "Caftan Traditionnel d'Art",
+      price: 2800,
+      priceFormatted: "2 800 €",
+      tag: "Couture Traditionnelle Marocaine",
+      image: "assets/look_7.jpg",
+      description: "Caftan d'apparat d'exception confectionné dans la plus pure tradition impériale marocaine : brocart de soie pure de Fès, broderies Tarz Ntaa au fil d'or Skalli pur, sfifa ouvragée et boutons aqqads façonnés à la main par nos Maâlems.",
+      fabric: "Brocart de soie de Fès, fil d'or Skalli cartier pur, satin de soie",
+      hours: "110 heures d'atelier Maâlem",
+      details: ["Broderies Tarz Ntaa au fil d'or Skalli", "Sfifa fassie tressée à la main", "Boutonnage Aqqads en soie sabra", "Finition orfèvre aux poignets"]
     },
     {
       id: 8,
@@ -312,13 +312,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filtered.forEach(p => {
       const isWishlisted = wishlist.includes(p.id);
+
+      let displayTag = p.tag;
+      let displayCategory = p.categoryLabel;
+      let displayTitle = p.title;
+
+      if (p.id === 7) {
+        if (currentLang === 'en') {
+          displayTag = "Traditional Moroccan Couture";
+          displayCategory = "Traditional Artisanal Caftan";
+          displayTitle = "Ceremonial Caftan 'Fez Brocade & Tarz Ntaa'";
+        } else if (currentLang === 'ar') {
+          displayTag = "أصالة القفطان المغربي";
+          displayCategory = "قفطان تقليدي أصيل";
+          displayTitle = "قفطان النطع الفاسي وبروكار الحرير";
+        }
+      }
+
       const card = document.createElement('div');
       card.className = 'product-card group flex flex-col bg-white border border-brand-sand/60 hover:shadow-xl transition-all duration-500 overflow-hidden';
       card.innerHTML = `
         <div class="image-wrapper relative h-96 overflow-hidden bg-brand-sand/20">
-          <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover object-top">
+          <img src="${p.image}" alt="${displayTitle}" class="w-full h-full object-cover object-top">
           <span class="absolute top-3 left-3 bg-brand-onyx/85 text-brand-gold text-[9px] uppercase tracking-widest font-semibold px-2.5 py-1 backdrop-blur-xs">
-            ${p.tag}
+            ${displayTag}
           </span>
           <button 
             data-wishlist-id="${p.id}" 
@@ -340,10 +357,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="p-5 flex-1 flex flex-col justify-between">
           <div>
             <span class="text-[10px] uppercase tracking-widest text-brand-gold font-medium block mb-1">
-              ${p.categoryLabel}
+              ${displayCategory}
             </span>
             <h4 class="font-serif text-lg text-brand-onyx group-hover:text-brand-gold transition-colors font-normal">
-              ${p.title}
+              ${displayTitle}
             </h4>
             <p class="text-xs text-brand-muted line-clamp-2 mt-1.5 font-light">
               ${p.description}
@@ -446,20 +463,36 @@ document.addEventListener('DOMContentLoaded', () => {
       waMsg = `مرحباً دار ميما كوتور، أود حجز موعد لجلسة قياس للتصميم "${p.title}".`;
     }
 
+    let modalTitle = p.title;
+    let modalDesc = p.description;
+    let modalCategory = p.categoryLabel;
+
+    if (p.id === 7) {
+      if (currentLang === 'en') {
+        modalTitle = "Ceremonial Caftan 'Fez Brocade & Tarz Ntaa'";
+        modalCategory = "Traditional Artisanal Caftan";
+        modalDesc = "Exceptional ceremonial caftan handcrafted in the purest Moroccan imperial tradition: fine Fez silk brocade adorned with pure Skalli gold Tarz Ntaa embroidery, handmade sfifa, and artisanal aqqad buttons.";
+      } else if (currentLang === 'ar') {
+        modalTitle = "قفطان النطع الفاسي وبروكار الحرير";
+        modalCategory = "قفطان تقليدي أصيل";
+        modalDesc = "قفطان مغربي فاخر مصنوع في أبهى صور التقاليد الإمبراطورية: بروكار الحرير الفاسي الأصيل، مطرز بخيوط الصقلي الحر وفق فن طرز النطع التاريخي، مع سفيفة فاسية وعقاد حريرية متقنة.";
+      }
+    }
+
     modalContent.innerHTML = `
       <div class="h-96 md:h-full bg-brand-sand/20 relative">
-        <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover object-top">
+        <img src="${p.image}" alt="${modalTitle}" class="w-full h-full object-cover object-top">
       </div>
       <div class="p-8 md:p-10 flex flex-col justify-between">
         <div>
           <span class="text-xs uppercase tracking-[0.25em] text-brand-gold font-semibold block mb-1">
-            ${p.categoryLabel}
+            ${modalCategory}
           </span>
-          <h3 class="font-serif text-3xl font-light text-brand-onyx mb-2">${p.title}</h3>
+          <h3 class="font-serif text-3xl font-light text-brand-onyx mb-2">${modalTitle}</h3>
           <p class="font-serif text-2xl text-brand-goldDark mb-6">${p.priceFormatted}</p>
           
           <p class="text-brand-muted text-sm leading-relaxed mb-6 font-light">
-            ${p.description}
+            ${modalDesc}
           </p>
 
           <div class="space-y-3 border-t border-brand-sand/60 pt-4 mb-6">
